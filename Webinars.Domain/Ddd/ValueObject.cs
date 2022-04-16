@@ -8,7 +8,7 @@ namespace Webinars.Domain.Ddd
 {
     public abstract class ValueObject<T> where T : ValueObject<T>
     {
-        protected abstract IEnumerable<T> GetAttributesToEqualityCheck();
+        protected abstract IEnumerable<object> GetAttributesToEqualityCheck();
         public override bool Equals(object obj)
         {
             return Equals(obj as T);

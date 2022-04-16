@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Status\" />
-    <Folder Include="ValueObjects\Ids\" />
-    <Folder Include="ValueObjects\Security\" />
   </ItemGroup>
 
 </Project>
