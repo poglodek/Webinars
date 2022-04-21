@@ -42,7 +42,11 @@ namespace Webinars.Domain.ValueObjects
         public List<string> GetAllSocialMedia()
         {
             var socials = new List<string>();
-            socials.AddRange(GetAttributesToEqualityCheck().Where(x => x != null) as IEnumerable<string> ?? Array.Empty<string>());
+            foreach (string item in GetAttributesToEqualityCheck())
+            {
+                if(!string.IsNullOrWhiteSpace(item))
+                    socials.Add(item);
+            }
             return socials;
         }
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
