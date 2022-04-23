@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Webinars.Domain.Ddd;
 
-namespace Webinars.Domain.ValueObjects.Webinar
+namespace Webinars.Domain.ValueObjects.Common
 {
     public class Description : ValueObject<Description>
     {

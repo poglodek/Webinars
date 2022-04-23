@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Webinars.Domain.Ddd;
 
-namespace Webinars.Domain.ValueObjects
+namespace Webinars.Domain.ValueObjects.Webinar
 {
     public enum CatergoryStatus
     {

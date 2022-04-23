@@ -4,17 +4,17 @@ using Webinars.Domain.Ddd;
 
 namespace Webinars.Domain.ValueObjects
 {
-    public class SpeakerName : ValueObject<SpeakerName>
+    public class Name : ValueObject<Name>
     {
         public string FirstName { get; }
         public string LastName { get; }
 
-        public SpeakerName(string firstName, string lastName)
+        public Name(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(firstName))
-                throw new ArgumentException("First speakerName cannot be empty");
+                throw new ArgumentException("First name cannot be empty");
             if (string.IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException("Last speakerName cannot be empty");
+                throw new ArgumentException("Last name cannot be empty");
             FirstName = firstName;
             LastName = lastName;
         }
