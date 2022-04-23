@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Webinars.Domain.ValueObjects;
+﻿using Webinars.Domain.ValueObjects;
 
 namespace Webinars.Common.Builders
 {
@@ -47,6 +42,6 @@ namespace Webinars.Common.Builders
             this._blog = blog;
             return this;
         }
-        public SocialMedia Build() => new (_fb,_ig,_tt, _yt, _gh, _blog);
+        public SocialMedia Build() => new(_fb, _ig, _tt, _yt, _gh, _blog);
     }
 }

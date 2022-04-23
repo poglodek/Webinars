@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Webinars.Domain.Ddd;
 
 namespace Webinars.Domain.ValueObjects.Ids
@@ -12,7 +8,7 @@ namespace Webinars.Domain.ValueObjects.Ids
         public int Id { get; set; }
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
-            yield return Id;    
+            yield return Id;
         }
 
         public override string ToString()

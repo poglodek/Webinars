@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Webinars.Domain.Ddd;
 
-namespace Webinars.Domain.ValueObjects
+namespace Webinars.Domain.ValueObjects.Speaker
 {
     public class Address : ValueObject<Address>
     {

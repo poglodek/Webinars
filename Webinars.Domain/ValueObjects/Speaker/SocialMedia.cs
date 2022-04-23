@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Webinars.Domain.Ddd;
 
 namespace Webinars.Domain.ValueObjects
@@ -29,7 +24,7 @@ namespace Webinars.Domain.ValueObjects
 
         public bool HasSocialMedia()
         {
-            if (!string.IsNullOrWhiteSpace(Facebook) 
+            if (!string.IsNullOrWhiteSpace(Facebook)
                 || !string.IsNullOrWhiteSpace(Instagram)
                 || !string.IsNullOrWhiteSpace(Twitter)
                 || !string.IsNullOrWhiteSpace(Youtube)
@@ -44,7 +39,7 @@ namespace Webinars.Domain.ValueObjects
             var socials = new List<string>();
             foreach (string item in GetAttributesToEqualityCheck())
             {
-                if(!string.IsNullOrWhiteSpace(item))
+                if (!string.IsNullOrWhiteSpace(item))
                     socials.Add(item);
             }
             return socials;
