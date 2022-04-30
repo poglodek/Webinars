@@ -17,8 +17,9 @@ namespace Webinars.Domain.Entities
         public Leader Leader { get; set; }
         public Category Category { get; set; }
 
-        public Conference(Name name, DateFrom dateFrom, DateTo dateTo, Address address, CreatedTime createdTime, Leader leader, Category category)
+        public Conference(ConferenceId conferenceId,Name name, DateFrom dateFrom, DateTo dateTo, Address address, CreatedTime createdTime, Leader leader, Category category)
         {
+            Id = conferenceId;
             Name = name;
             DateFrom = dateFrom;
             DateTo = dateTo;
