@@ -6,11 +6,11 @@ namespace Webinars.Domain.ValueObjects.Speaker
 {
     public class Address : ValueObject<Address>
     {
-        public string Street { get; }
-        public string City { get; }
-        public string Country { get; }
-        public string ZipCode { get; }
-        public string Number { get; }
+        public string Street { get; init; }
+        public string City { get; init; }
+        public string Country { get; init; }
+        public string ZipCode { get; init; }
+        public string Number { get; init; }
         public Address(string country, string city, string street, string zipCode, string number)
         {
             if (string.IsNullOrWhiteSpace(street))

@@ -5,7 +5,7 @@ namespace Webinars.Domain.ValueObjects.Ids
 {
     public class CommentatorId : ValueObject<CommentatorId>
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return Id;

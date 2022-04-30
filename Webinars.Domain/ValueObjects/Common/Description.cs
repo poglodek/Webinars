@@ -6,7 +6,7 @@ namespace Webinars.Domain.ValueObjects.Common
 {
     public class Description : ValueObject<Description>
     {
-        public string DescriptionText { get; set; }
+        public string DescriptionText { get; init; }
 
         public Description(string text)
         {

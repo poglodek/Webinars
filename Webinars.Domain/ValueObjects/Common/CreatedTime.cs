@@ -6,7 +6,7 @@ namespace Webinars.Domain.ValueObjects
 {
     public class CreatedTime : ValueObject<CreatedTime>
     {
-        public DateTime CreatedDateTime { get; }
+        public DateTime CreatedDateTime { get; init; }
         public CreatedTime(DateTime createdTime)
         {
             CreatedDateTime = createdTime;

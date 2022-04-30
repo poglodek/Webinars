@@ -6,7 +6,7 @@ namespace Webinars.Domain.ValueObjects
 {
     public class Email : ValueObject<Email>
     {
-        public string EmailAddress { get; }
+        public string EmailAddress { get; init; }
 
         public Email(string emailAddress)
         {

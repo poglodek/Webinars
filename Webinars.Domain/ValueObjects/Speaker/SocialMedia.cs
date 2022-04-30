@@ -5,12 +5,12 @@ namespace Webinars.Domain.ValueObjects
 {
     public class SocialMedia : ValueObject<SocialMedia>
     {
-        public string Facebook { get; }
-        public string Instagram { get; }
-        public string Twitter { get; }
-        public string Youtube { get; }
-        public string Github { get; }
-        public string Blog { get; }
+        public string Facebook { get; init; }
+        public string Instagram { get; init; }
+        public string Twitter { get; init; }
+        public string Youtube { get; init; }
+        public string Github { get; init; }
+        public string Blog { get; init; }
 
         public SocialMedia(string facebook, string instagram, string twitter, string youtube, string github, string blog)
         {
