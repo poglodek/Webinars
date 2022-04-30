@@ -9,8 +9,8 @@ namespace Webinars.Domain.ValueObjects.Commentator
 {
     public class CommentatorStatus : ValueObject<CommentatorStatus>
     {
-        public bool IsActive { get; set; }
-        public bool Banned { get; set; }
+        public bool IsActive { get; init; }
+        public bool Banned { get; init; }
 
         public CommentatorStatus(bool isActive, bool banned)
         {

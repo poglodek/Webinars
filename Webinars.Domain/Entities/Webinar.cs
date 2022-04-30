@@ -1,4 +1,5 @@
-﻿using Webinars.Domain.Ddd;
+﻿using System.Collections.Generic;
+using Webinars.Domain.Ddd;
 using Webinars.Domain.ValueObjects;
 using Webinars.Domain.ValueObjects.Common;
 using Webinars.Domain.ValueObjects.Ids;
@@ -9,7 +10,7 @@ namespace Webinars.Domain.Entities
     public class Webinar : Entity<WebinarId>
     {
         public WebinarName  WebinarName { get; init; }
-        public Speaker  Speaker { get; init; }
+        public Speaker Speaker { get; init; }
         public Description Description { get; init; }
         public Link Link { get; init; }
         public Replay Replay { get; init; }
@@ -28,7 +29,7 @@ namespace Webinars.Domain.Entities
             CreatedTime = createdTime;
             Category = category;
         }
-        
+
 
     }
 }
