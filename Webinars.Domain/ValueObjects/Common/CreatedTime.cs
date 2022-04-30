@@ -11,7 +11,6 @@ namespace Webinars.Domain.ValueObjects
         {
             CreatedDateTime = createdTime;
         }
-
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return CreatedDateTime;
