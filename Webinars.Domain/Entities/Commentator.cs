@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Webinars.Domain.Ddd;
 using Webinars.Domain.ValueObjects;
 using Webinars.Domain.ValueObjects.Commentator;
@@ -43,7 +42,7 @@ namespace Webinars.Domain.Entities
         {
             CommentatorStatus = new CommentatorStatus(true, CommentatorStatus.Banned);
         }
-        
+
         public void InActive()
         {
             CommentatorStatus = new CommentatorStatus(true, CommentatorStatus.Banned);
@@ -61,7 +60,7 @@ namespace Webinars.Domain.Entities
 
         public void SendMessage(Message message)
         {
-            if(message.IsVisible)
+            if (message.IsVisible)
                 Messages.Add(message);
         }
     }

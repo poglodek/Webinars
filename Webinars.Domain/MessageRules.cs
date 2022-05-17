@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Webinars.Domain.ValueObjects.Message;
 
 namespace Webinars.Domain
@@ -37,7 +35,7 @@ namespace Webinars.Domain
 
             foreach (var word in words)
             {
-                if (_cursesList.Select(x=>x.Word.ToUpper()).Contains(word))
+                if (_cursesList.Select(x => x.Word.ToUpper()).Contains(word))
                     return false;
             }
             return true;

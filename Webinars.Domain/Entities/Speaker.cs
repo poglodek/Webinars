@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using Webinars.Domain.Ddd;
+﻿using Webinars.Domain.Ddd;
 using Webinars.Domain.ValueObjects;
 using Webinars.Domain.ValueObjects.Ids;
-using Webinars.Domain.ValueObjects.Message;
 using Webinars.Domain.ValueObjects.Security;
 using Webinars.Domain.ValueObjects.Speaker;
 

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Webinars.Domain.Ddd;
 
 namespace Webinars.Domain.ValueObjects.Message
@@ -15,7 +12,7 @@ namespace Webinars.Domain.ValueObjects.Message
 
         public Message(string value, CreatedTime createdTime)
         {
-            if(string.IsNullOrWhiteSpace(value))
+            if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentNullException("Message cannot be empty");
             Value = value;
             CreatedTime = createdTime;

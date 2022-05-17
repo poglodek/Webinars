@@ -20,7 +20,7 @@ namespace Webinars.Domain.Entities
         public Category Category { get; set; }
         public List<Webinar> Webinars { get; set; }
 
-        public Conference(ConferenceId conferenceId,Name name, DateFrom dateFrom, DateTo dateTo, Address address, CreatedTime createdTime, Leader leader, Category category, List<Webinar> webinars)
+        public Conference(ConferenceId conferenceId, Name name, DateFrom dateFrom, DateTo dateTo, Address address, CreatedTime createdTime, Leader leader, Category category, List<Webinar> webinars)
         {
             if (dateFrom.DateFromTime > dateTo.DateToTime)
                 throw new ArgumentException("Start date time cannot be later than end date time");
@@ -37,20 +37,20 @@ namespace Webinars.Domain.Entities
 
         public void AddWebinar(Webinar webinar)
         {
-            if(Webinars.Contains(webinar))
+            if (Webinars.Contains(webinar))
                 return;
             Webinars.Add(webinar);
         }
         public void RemoveWebinar(Webinar webinar)
         {
-            if(!Webinars.Contains(webinar))
+            if (!Webinars.Contains(webinar))
                 return;
             Webinars.Remove(webinar);
         }
 
         public void ChangeDate(DateTime startTime, DateTime endDateTime)
         {
-            
+
             DateFrom = new DateFrom(startTime);
             DateTo = new DateTo(endDateTime);
         }
