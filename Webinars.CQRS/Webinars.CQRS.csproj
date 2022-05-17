@@ -1,7 +1,32 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.0.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.0.1" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commentator\Commands\" />
+    <Folder Include="Commentator\Queries\" />
+    <Folder Include="Conference\Commands\" />
+    <Folder Include="Conference\Queries\" />
+    <Folder Include="Leader\Commands\" />
+    <Folder Include="Leader\Queries\" />
+    <Folder Include="Speaker\Commands\" />
+    <Folder Include="Speaker\Queries\" />
+    <Folder Include="Webinar\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Webinars.Domain\Webinars.Domain.csproj" />
+  </ItemGroup>
 
 </Project>
