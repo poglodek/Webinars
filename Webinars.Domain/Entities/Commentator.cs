@@ -57,11 +57,6 @@ namespace Webinars.Domain.Entities
         {
             Name = new Name(firstName, lastName);
         }
-
-        public void SendMessage(Message message)
-        {
-            if (message.IsVisible)
-                Messages.Add(message);
-        }
+        
     }
 }
