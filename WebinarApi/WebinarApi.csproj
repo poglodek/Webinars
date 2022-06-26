@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Webinars.CQRS\Webinars.CQRS.csproj" />
+      <ProjectReference Include="..\Webinars.Dapper.SQLServer\Webinars.Dapper.SQLServer.csproj" />
       <ProjectReference Include="..\Webinars.Domain\Webinars.Domain.csproj" />
     </ItemGroup>
 

@@ -1,8 +1,11 @@
 using WebinarApi;
+using Webinars.CQRS;
+using Webinars.Dapper.SQLServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddCQRS();
+builder.Services.AddRepository();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

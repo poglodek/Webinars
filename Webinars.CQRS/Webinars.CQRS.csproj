@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Webinars.Contracts\Webinars.Contracts.csproj" />
     <ProjectReference Include="..\Webinars.Domain\Webinars.Domain.csproj" />
   </ItemGroup>
 

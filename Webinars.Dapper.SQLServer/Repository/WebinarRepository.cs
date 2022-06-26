@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -16,9 +17,9 @@ namespace Webinars.Dapper.SQLServer.Repository
         {
             _connection = connection;
         }
-        public Task<IReadOnlyList<Webinar>> GetAllCollection(CatergoryStatus filter = CatergoryStatus.ALL)
+        public async Task<IReadOnlyList<Webinar>> GetAllCollection(CatergoryStatus filter = CatergoryStatus.ALL, int page = 0)
         {
-            throw new System.NotImplementedException();
+            return new List<Webinar>(0);
         }
     }
 }
