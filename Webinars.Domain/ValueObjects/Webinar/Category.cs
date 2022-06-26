@@ -7,7 +7,8 @@ namespace Webinars.Domain.ValueObjects.Webinar
     {
         NEW,
         IN_PROGRESS,
-        ENDED
+        ENDED,
+        ALL
     }
     public class Category : ValueObject<Category>
     {
