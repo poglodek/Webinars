@@ -1,5 +1,6 @@
 using WebinarApi;
 using Webinars.CQRS;
+using Webinars.Dapper.MySQL;
 using Webinars.Dapper.SQLServer;
 
 var builder = WebApplication.CreateBuilder(args);

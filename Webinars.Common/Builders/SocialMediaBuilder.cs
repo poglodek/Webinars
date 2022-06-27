@@ -1,4 +1,5 @@
 ﻿using Webinars.Domain.ValueObjects;
+using Webinars.Domain.ValueObjects.Speaker;
 
 namespace Webinars.Common.Builders
 {

@@ -1,4 +1,4 @@
-﻿namespace Webinars.Dapper.SQLServer
+﻿namespace Webinars.Dapper.MySQL.Config
 {
     public interface ISqlServerConfig
     {

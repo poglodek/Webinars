@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webinars.Contracts", "Webin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presistence", "Presistence", "{334DDE41-5F61-4FCE-BDE3-D5DFF7583471}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webinars.Dapper.SQLServer", "Webinars.Dapper.SQLServer\Webinars.Dapper.SQLServer.csproj", "{E2734075-9FC0-4048-B2A7-2A63082F9710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webinars.Dapper.MySQL", "Webinars.Dapper.MySQL\Webinars.Dapper.MySQL.csproj", "{E2734075-9FC0-4048-B2A7-2A63082F9710}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webinars.Common", "Webinars.Common\Webinars.Common.csproj", "{6309711B-C971-4675-84AA-38CF0217B479}"
 EndProject

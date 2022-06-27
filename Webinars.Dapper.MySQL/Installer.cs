@@ -1,18 +1,17 @@
 ﻿using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
+using MySqlConnector;
 using Webinars.Contracts.Persistence;
-using Webinars.Dapper.SQLServer.Repository;
+using Webinars.Dapper.MySQL.Repository;
 
-namespace Webinars.Dapper.SQLServer
+namespace Webinars.Dapper.MySQL
 {
     public static class Installer
     {
         public static IServiceCollection AddRepository(this IServiceCollection services)
         {
-            services.AddTransient<IDbConnection, SqlConnection>(
-                (services) => new SqlConnection("Data Source=localhost;Initial Catalog=Webinars;Integrated Security=True"));
+            services.AddTransient<IDbConnection, MySqlConnection>(
+                (services) => new MySqlConnection("Server=127.0.0.1;User ID = adminNET; Password=admin;Database=webinar"));
             services.AddScoped<IWebinarRepository,WebinarRepository>();
             return services;
         } 
