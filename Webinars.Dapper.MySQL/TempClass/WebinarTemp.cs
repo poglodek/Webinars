@@ -11,8 +11,6 @@ namespace Webinars.Dapper.MySQL.TempClass
         public string WebsiteLink { get; set; }
         public string YoutubeReplay { get; set; }
         public string WebsiteReplay { get; set; }
-        public string SpeakerFirstName { get; set; }
-        public string SpeakerLastName { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CategoryInt { get; set; }
     }

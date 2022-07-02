@@ -6,7 +6,7 @@ namespace Webinars.Domain.ValueObjects.Webinar
 {
     public class WebinarName : ValueObject<WebinarName>
     {
-        public string Name { get; set; }
+        public string Name { get; init; }
 
         public WebinarName(string name)
         {

@@ -10,8 +10,8 @@ namespace Webinars.CQRS.Webinar.Queries.GetAllWebinars
 {
     public class GetAllWebinarsQueryHandlerResponse
     {
-        public List<WebinarInListViewModel> List { get; init; }
-        public GetAllWebinarsQueryHandlerResponse(List<WebinarInListViewModel> list)
+        public IEnumerable<WebinarViewModel> List { get; init; }
+        public GetAllWebinarsQueryHandlerResponse(IEnumerable<WebinarViewModel> list)
         {
             List = list;
         }

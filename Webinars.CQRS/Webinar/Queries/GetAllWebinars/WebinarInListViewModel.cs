@@ -7,7 +7,7 @@ using Webinars.CQRS.Mapper.Dto;
 
 namespace Webinars.CQRS.Webinar.Queries.GetAllWebinars
 {
-    public class WebinarInListViewModel
+    public class WebinarViewModel
     {
         public int Id { get; set; }
         public SpeakerDto Speaker { get; set; }

@@ -9,7 +9,7 @@ public static class RegisterEndPoints
 {
     public static WebApplication RegisterEndpoints(this WebApplication app)
     {
-        app.MapGet("/GetAll/{status}/{page}", async ([FromRoute] int status,[FromRoute] int page, IMediator mediator) =>
+        app.MapGet("/GetAll/{status}/{page}", async ([FromServices]IMediator mediator,[FromRoute] int status,[FromRoute] int page) =>
         {
             var query = new GetAllWebinarsQuery
             {

@@ -3,9 +3,9 @@ using Webinars.CQRS.Mapper.Dto;
 
 namespace Webinars.CQRS.Mapper
 {
-    public class Mapper : Profile
+    public class MapperDto : Profile
     {
-        public Mapper()
+        public MapperDto()
         {
             CreateMap<Domain.Entities.Webinar, WebinarDto>()
                 .ForMember(x=>x.Id, opt=>opt.MapFrom(y=>y.Id))

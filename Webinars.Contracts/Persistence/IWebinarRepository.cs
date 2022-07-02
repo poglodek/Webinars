@@ -7,6 +7,6 @@ namespace Webinars.Contracts.Persistence
 {
     public interface IWebinarRepository
     {
-        public Task<IReadOnlyList<Webinar>> GetAllCollection(CatergoryStatus filter = CatergoryStatus.ALL, int page = 0);
+        public Task<IEnumerable<Webinar>> GetAllCollection(CatergoryStatus filter = CatergoryStatus.ALL, int page = 0);
     }
 }

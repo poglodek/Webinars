@@ -10,5 +10,11 @@ namespace Webinars.CQRS.Mapper.Dto
     {
         public string Youtube { get; set; }
         public string Website { get; set; }
+
+        public LinkDto(string yt, string wb)
+        {
+            Youtube = yt;
+            Website = wb;
+        }
     }
 }
