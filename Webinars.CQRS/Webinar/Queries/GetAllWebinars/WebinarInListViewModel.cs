@@ -10,7 +10,6 @@ namespace Webinars.CQRS.Webinar.Queries.GetAllWebinars
     public class WebinarViewModel
     {
         public int Id { get; set; }
-        public SpeakerDto Speaker { get; set; }
         public DescriptionDto Description { get; set; }
         public LinkDto Link { get; set; }
         public ReplayDto Replay { get; set; }

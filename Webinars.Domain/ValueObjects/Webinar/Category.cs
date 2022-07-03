@@ -5,7 +5,7 @@ namespace Webinars.Domain.ValueObjects.Webinar
 {
     public enum CatergoryStatus
     {
-        NEW,
+        NEW = 1,
         IN_PROGRESS,
         ENDED,
         ALL
