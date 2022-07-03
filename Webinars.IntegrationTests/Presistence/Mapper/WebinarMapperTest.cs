@@ -4,6 +4,7 @@ using AutoMapper;
 using FluentAssertions;
 using Webinars.CQRS.Mapper;
 using Webinars.CQRS.Webinar.Queries.GetAllWebinars;
+using Webinars.CQRS.Webinar.ViewModel;
 using Webinars.Dapper.MySQL.Converter;
 using Webinars.Dapper.MySQL.Mapper;
 using Webinars.Dapper.MySQL.TempClass;

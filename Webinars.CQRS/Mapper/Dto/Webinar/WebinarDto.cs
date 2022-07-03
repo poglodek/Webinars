@@ -2,7 +2,7 @@
 {
     public class WebinarDto
     {
-        public WebinarId Id { get; set; }
+        public WebinarIdDto WebinarId { get; set; }
         public WebinarNameDto WebinarName { get; set; }
         public SpeakerDto Speaker { get; set; }
         public DescriptionDto Description { get; set; }

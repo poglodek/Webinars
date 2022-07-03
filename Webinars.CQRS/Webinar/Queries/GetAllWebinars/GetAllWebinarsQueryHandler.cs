@@ -8,6 +8,7 @@ using AutoMapper;
 using MediatR;
 using Webinars.Contracts.Persistence;
 using Webinars.CQRS.Mapper.Dto;
+using Webinars.CQRS.Webinar.ViewModel;
 
 namespace Webinars.CQRS.Webinar.Queries.GetAllWebinars
 {
@@ -23,9 +24,8 @@ namespace Webinars.CQRS.Webinar.Queries.GetAllWebinars
         }
         public async Task<GetAllWebinarsQueryHandlerResponse> Handle(GetAllWebinarsQuery request, CancellationToken cancellationToken)
         {
-           var lista =  await _repository.GetAllCollection(request.Filter, request.Page);
-           var list = _mapper.Map<IEnumerable<WebinarViewModel>>(lista);
-           return new GetAllWebinarsQueryHandlerResponse(list);
+           var list =  await _repository.GetAllCollection(request.Filter, request.Page);
+           return new GetAllWebinarsQueryHandlerResponse(_mapper.Map<IEnumerable<WebinarViewModel>>(list));
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Webinars.CQRS.Mapper
         public MapperProperty()
         {
             CreateMap<WebinarName, WebinarNameDto>();
-            CreateMap<WebinarId, int>().ConstructUsing(x => x.Id);
+            CreateMap<WebinarId, WebinarIdDto>();
             CreateMap<Description, DescriptionDto>();
             CreateMap<Link, LinkDto>().ConstructUsing(x=> new LinkDto(x.Youtube,x.Website));
             CreateMap<Replay, ReplayDto>().ConstructUsing(x => new ReplayDto(x.Link.Youtube,x.Link.Website));

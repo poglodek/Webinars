@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using Webinars.CQRS.Webinar.Queries.GetAllWebinars;
+using Webinars.CQRS.Webinar.ViewModel;
 
 namespace Webinars.CQRS.Mapper
 {

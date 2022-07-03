@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
+using Webinars.CQRS.Webinar.ViewModel;
 using Webinars.Domain.ValueObjects.Webinar;
 
 namespace Webinars.CQRS.Webinar.Queries.GetAllWebinars

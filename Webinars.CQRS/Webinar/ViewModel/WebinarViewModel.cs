@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Webinars.CQRS.Mapper.Dto;
+﻿using Webinars.CQRS.Mapper.Dto;
+using Webinars.Domain.ValueObjects.Ids;
 
-namespace Webinars.CQRS.Webinar.Queries.GetAllWebinars
+namespace Webinars.CQRS.Webinar.ViewModel
 {
     public class WebinarViewModel
     {
-        public int Id { get; set; }
+        public WebinarIdDto Id { get; set; }
         public DescriptionDto Description { get; set; }
         public LinkDto Link { get; set; }
         public ReplayDto Replay { get; set; }
