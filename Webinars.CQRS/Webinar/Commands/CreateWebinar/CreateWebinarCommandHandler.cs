@@ -9,17 +9,17 @@ using Webinars.Domain.Exception;
 
 namespace Webinars.CQRS.Webinar.Commands.CreateWebinar
 {
-    public class CreateWebinarCommandHandler : IRequestHandler<CreateWebinarCommand,OperationStatusCode>
+    public class CreateWebinarCommandHandler : IRequestHandler<CreateWebinarCommand, OperationStatusCode>
     {
-        private readonly IWebinarRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IWebinarRepository _repository;
 
         public CreateWebinarCommandHandler(IWebinarRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        
+
         public async Task<OperationStatusCode> Handle(CreateWebinarCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateWebinarCommandValidator();
@@ -28,13 +28,13 @@ namespace Webinars.CQRS.Webinar.Commands.CreateWebinar
                 throw new ValidationException(validationResult.Errors);
 
             //TODO: GET SPEAKER by rabbitmq
-            
+
             var webinar = _mapper.Map<Domain.Entities.Webinar>(request);
-            
-            var result =  await _repository.Create(webinar);
-            if(result != OperationStatusCode.CREATED)
-                throw new RepositoryException("Webinar creation failed: " + result.ToString());
-            
+
+            var result = await _repository.Create(webinar);
+            if (result != OperationStatusCode.CREATED)
+                throw new RepositoryException("Webinar creation failed: " + result);
+
             return OperationStatusCode.CREATED;
         }
     }

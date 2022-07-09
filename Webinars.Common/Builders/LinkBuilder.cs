@@ -4,16 +4,20 @@ namespace Webinars.Common.Builders
 {
     public class LinkBuilder
     {
-        private string _yt;
         private string _ws;
+        private string _yt;
 
-        public static LinkBuilder CreateLink() => new();
+        public static LinkBuilder CreateLink()
+        {
+            return new();
+        }
 
         public LinkBuilder WithYoutube(string yt)
         {
             _yt = yt;
             return this;
         }
+
         public LinkBuilder WithWebsite(string ws)
         {
             _ws = ws;
@@ -21,6 +25,8 @@ namespace Webinars.Common.Builders
         }
 
         public Link Build()
-            => new Link(_yt, _ws);
+        {
+            return new(_yt, _ws);
+        }
     }
 }

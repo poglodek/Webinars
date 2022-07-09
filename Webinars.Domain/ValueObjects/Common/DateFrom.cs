@@ -6,11 +6,12 @@ namespace Webinars.Domain.ValueObjects.Common
 {
     public class DateFrom : ValueObject<CreatedTime>
     {
-        public DateTime DateFromTime { get; init; }
         public DateFrom(DateTime fromTime)
         {
             DateFromTime = fromTime;
         }
+
+        public DateTime DateFromTime { get; init; }
 
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {

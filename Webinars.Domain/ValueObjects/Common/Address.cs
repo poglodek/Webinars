@@ -6,11 +6,6 @@ namespace Webinars.Domain.ValueObjects.Speaker
 {
     public class Address : ValueObject<Address>
     {
-        public string Street { get; init; }
-        public string City { get; init; }
-        public string Country { get; init; }
-        public string ZipCode { get; init; }
-        public string Number { get; init; }
         public Address(string country, string city, string street, string zipCode, string number)
         {
             if (string.IsNullOrWhiteSpace(street))
@@ -29,6 +24,12 @@ namespace Webinars.Domain.ValueObjects.Speaker
             ZipCode = zipCode;
             Number = number;
         }
+
+        public string Street { get; init; }
+        public string City { get; init; }
+        public string Country { get; init; }
+        public string ZipCode { get; init; }
+        public string Number { get; init; }
 
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {

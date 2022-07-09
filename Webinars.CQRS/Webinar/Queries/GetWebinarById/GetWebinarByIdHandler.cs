@@ -9,16 +9,17 @@ namespace Webinars.CQRS.Webinar.Queries.GetWebinarById
 {
     public class GetWebinarByIdHandler : IRequestHandler<GetWebinarById, GetWebinarByIdHandlerResponse>
     {
-        private readonly IWebinarRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IWebinarRepository _repository;
 
         public GetWebinarByIdHandler(IWebinarRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        
-        public async Task<GetWebinarByIdHandlerResponse> Handle(GetWebinarById request, CancellationToken cancellationToken)
+
+        public async Task<GetWebinarByIdHandlerResponse> Handle(GetWebinarById request,
+            CancellationToken cancellationToken)
         {
             var webinar = await _repository.GetById(request.Id);
 

@@ -21,6 +21,7 @@ public class CreateWebinar : ICreateWebinar
         _connection = connection;
         _mapper = mapper;
     }
+
     public async Task<OperationStatusCode> Run(Domain.Entities.Webinar webinar)
     {
         await _connection.ExecuteAsync("");

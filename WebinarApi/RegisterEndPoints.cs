@@ -16,33 +16,34 @@ public static class RegisterEndPoints
             .Produces<GetAllWebinarsQueryHandlerResponse>()
             .Produces(StatusCodes.Status404NotFound)
             .WithTags("Webinars");
-        
+
         app.MapGet("/Get/{id:int}", GetById)
             .Produces<GetWebinarByIdHandlerResponse>()
             .Produces(StatusCodes.Status404NotFound)
             .WithTags("Get Webinar");
-        
+
         app.MapPost("/CreateWebinar", CreateWebinar)
             .Accepts<CreateWebinarCommand>("application/json")
             .Produces<OperationStatusCode>(StatusCodes.Status201Created)
             .Produces(StatusCodes.Status400BadRequest)
-            
             .WithTags("Create Webinar");
-        
+
         return app;
     }
 
-    private static async Task<IResult> GetAll([FromServices]IMediator mediator,[FromRoute] int status,[FromRoute] int page)
+    private static async Task<IResult> GetAll([FromServices] IMediator mediator, [FromRoute] int status,
+        [FromRoute] int page)
     {
         var query = new GetAllWebinarsQuery
         {
-            Filter = (CatergoryStatus)status,
+            Filter = (CatergoryStatus) status,
             Page = page
         };
         var result = await mediator.Send(query);
         return Results.Ok(result);
     }
-    private static async Task<IResult> GetById([FromServices]IMediator mediator,[FromRoute] int id)
+
+    private static async Task<IResult> GetById([FromServices] IMediator mediator, [FromRoute] int id)
     {
         var query = new GetWebinarById
         {
@@ -52,8 +53,9 @@ public static class RegisterEndPoints
         var result = await mediator.Send(query);
         return Results.Ok(result);
     }
-    
-    private static async Task<IResult> CreateWebinar([FromServices]IMediator mediator,[FromBody] CreateWebinarCommand command)
+
+    private static async Task<IResult> CreateWebinar([FromServices] IMediator mediator,
+        [FromBody] CreateWebinarCommand command)
     {
         var result = await mediator.Send(command);
         return Results.Ok(result);

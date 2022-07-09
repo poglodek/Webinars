@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Webinars.CQRS.Webinar.ViewModel;
 
 namespace Webinars.CQRS.Webinar.Queries.GetWebinarById
 {

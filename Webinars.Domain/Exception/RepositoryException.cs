@@ -2,9 +2,8 @@
 {
     public class RepositoryException : System.Exception
     {
-        public RepositoryException(string msg):base(msg)
+        public RepositoryException(string msg) : base(msg)
         {
-            
         }
     }
 }

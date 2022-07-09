@@ -6,14 +6,14 @@ namespace Webinars.Domain.ValueObjects.Webinar
 {
     public class Link : ValueObject<Link>
     {
-        public string Youtube { get; set; }
-        public string Website { get; set; }
-
         public Link(string youtube, string website)
         {
             Youtube = youtube;
             Website = website;
         }
+
+        public string Youtube { get; set; }
+        public string Website { get; set; }
 
         public bool HasStream()
         {
@@ -30,8 +30,10 @@ namespace Webinars.Domain.ValueObjects.Webinar
 
                 list.Add(link);
             }
+
             return list;
         }
+
         protected override IEnumerable<string> GetAttributesToEqualityCheck()
         {
             yield return Youtube;
@@ -41,10 +43,7 @@ namespace Webinars.Domain.ValueObjects.Webinar
         public override string ToString()
         {
             var sb = new StringBuilder();
-            foreach (var link in GetAllLink())
-            {
-                sb.Append(link + "\n");
-            }
+            foreach (var link in GetAllLink()) sb.Append(link + "\n");
 
             return sb.ToString();
         }

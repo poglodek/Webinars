@@ -10,7 +10,7 @@ namespace Webinars.CQRS
         {
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
             serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
-            
+
             return serviceCollection;
         }
     }

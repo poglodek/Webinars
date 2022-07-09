@@ -15,6 +15,7 @@ namespace Webinars.UnitTest.Domain
 
             result.Should().BeTrue();
         }
+
         [Fact]
         public void HasReplay_HasNotLink_ReturnFalse()
         {

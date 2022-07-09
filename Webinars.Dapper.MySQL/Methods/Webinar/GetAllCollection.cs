@@ -23,17 +23,18 @@ public class WebinarWebinarGetAllCollection : IWebinarGetAllCollection
         _connection = connection;
         _mapper = mapper;
     }
-    
-    public async Task<IReadOnlyCollection<Domain.Entities.Webinar>> Run(CatergoryStatus filter = CatergoryStatus.ALL, int page = 0)
-    { 
-        string sql = @$"SELECT w.Name as 'WebinarName', w.Id as 'WebinarId', w.Description as 'Description', w.Youtube as 'YouTubeLink',
+
+    public async Task<IReadOnlyCollection<Domain.Entities.Webinar>> Run(CatergoryStatus filter = CatergoryStatus.ALL,
+        int page = 0)
+    {
+        var sql =
+            @$"SELECT w.Name as 'WebinarName', w.Id as 'WebinarId', w.Description as 'Description', w.Youtube as 'YouTubeLink',
                         w.Website as 'WebsiteLink', w.YoutubeReplay as 'YoutubeReplay', w.WebsiteRepaly as 'WebsiteReplay', w.Category as 'CategoryInt', 
                         w.CreatedTime as 'CreatedDate', s.FirstName as 'SpeakerFirstName', s.LastName as 'SpeakerLastName'
                         from webinar w 
                         inner join speaker s on s.id = w.id
                         WHERE w.Category = @category LIMIT 10 OFFSET {page} ";
-        var temp = await _connection.QueryAsync<WebinarTemp>(sql, new {category = (int)filter });
+        var temp = await _connection.QueryAsync<WebinarTemp>(sql, new {category = (int) filter});
         return _mapper.Map<IReadOnlyCollection<Domain.Entities.Webinar>>(temp);
-
     }
 }

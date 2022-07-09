@@ -6,22 +6,23 @@ namespace Webinars.Domain.ValueObjects.Message
 {
     public class Message : ValueObject<Message>
     {
-        public string Value { get; init; }
-        public MessageScoreResult Score { get; set; }
-        public CreatedTime CreatedTime { get; init; }
-
         public Message(string value, CreatedTime createdTime)
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentNullException("Message cannot be empty");
             Value = value;
             CreatedTime = createdTime;
-
         }
+
         public Message(string value, CreatedTime createdTime, MessageScoreResult score) : this(value, createdTime)
         {
             Score = score;
         }
+
+        public string Value { get; init; }
+        public MessageScoreResult Score { get; set; }
+        public CreatedTime CreatedTime { get; init; }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return Value;

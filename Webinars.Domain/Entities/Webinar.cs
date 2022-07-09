@@ -8,15 +8,8 @@ namespace Webinars.Domain.Entities
 {
     public class Webinar : Entity<WebinarId>
     {
-        public WebinarName WebinarName { get; init; }
-        public Speaker Speaker { get; init; }
-        public Description Description { get; init; }
-        public Link Link { get; init; }
-        public Replay Replay { get; init; }
-        public CreatedTime CreatedTime { get; init; }
-        public Category Category { get; init; }
-
-        public Webinar(WebinarId webinarId, WebinarName webinarName, Speaker speaker, Description description, Link link,
+        public Webinar(WebinarId webinarId, WebinarName webinarName, Speaker speaker, Description description,
+            Link link,
             Replay replay, CreatedTime createdTime, Category category)
         {
             Id = webinarId;
@@ -29,6 +22,12 @@ namespace Webinars.Domain.Entities
             Category = category;
         }
 
-
+        public WebinarName WebinarName { get; init; }
+        public Speaker Speaker { get; init; }
+        public Description Description { get; init; }
+        public Link Link { get; init; }
+        public Replay Replay { get; init; }
+        public CreatedTime CreatedTime { get; init; }
+        public Category Category { get; init; }
     }
 }

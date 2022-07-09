@@ -1,5 +1,4 @@
 ﻿using Webinars.CQRS.Mapper.Dto;
-using Webinars.Domain.ValueObjects.Ids;
 
 namespace Webinars.CQRS.Webinar.ViewModel
 {

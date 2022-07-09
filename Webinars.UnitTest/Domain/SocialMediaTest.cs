@@ -13,6 +13,7 @@ namespace Webinars.UnitTest.Domain
 
             Assert.True(sm.HasSocialMedia());
         }
+
         [Fact]
         public void SocialMedia_HasMedia_WithMediaNull_ReturnFalse()
         {
@@ -25,16 +26,12 @@ namespace Webinars.UnitTest.Domain
         [Fact]
         public void SocialMedia_GetAllSocialMedia_With3Media_Return3()
         {
-            var sm = SocialMediaBuilder.BuildSocialMedia().
-                WithBlog("Blog.com").
-                WithFacebook("fb.com")
+            var sm = SocialMediaBuilder.BuildSocialMedia().WithBlog("Blog.com").WithFacebook("fb.com")
                 .WithInstagram("ig.com")
                 .Build();
 
             var media = sm.GetAllSocialMedia();
             media.Count.Should().Be(3);
         }
-
-
     }
 }

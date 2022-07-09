@@ -6,23 +6,22 @@ using Webinars.Contracts.Persistence;
 using Webinars.Dapper.MySQL.Methods.Webinar;
 using Webinars.Dapper.MySQL.Repository;
 
-namespace Webinars.Dapper.MySQL
+namespace Webinars.Dapper.MySQL;
+
+public static class Installer
 {
-    public static class Installer
+    public static IServiceCollection AddRepository(this IServiceCollection services)
     {
-        public static IServiceCollection AddRepository(this IServiceCollection services)
-        {
-            services.AddTransient<IDbConnection, MySqlConnection>(
-                (services) => new MySqlConnection("Server=127.0.0.1;User ID = adminNET; Password=admin;Database=webinar"));
-            services.AddScoped<IWebinarRepository,WebinarRepository>();
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            
-            services.AddTransient<IWebinarGetAllCollection, WebinarWebinarGetAllCollection>();
-            services.AddTransient<IGetWebinarById, GetWebinarWebinarById>();
-            services.AddTransient<ICreateWebinar, CreateWebinar>();
-            
-            
-            return services;
-        } 
+        services.AddTransient<IDbConnection, MySqlConnection>(
+            services => new MySqlConnection("Server=127.0.0.1;User ID = adminNET; Password=admin;Database=webinar"));
+        services.AddScoped<IWebinarRepository, WebinarRepository>();
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+        services.AddTransient<IWebinarGetAllCollection, WebinarWebinarGetAllCollection>();
+        services.AddTransient<IGetWebinarById, GetWebinarWebinarById>();
+        services.AddTransient<ICreateWebinar, CreateWebinar>();
+
+
+        return services;
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Webinars.Domain.Ddd
@@ -7,6 +6,7 @@ namespace Webinars.Domain.Ddd
     public abstract class ValueObject<T> where T : ValueObject<T>
     {
         protected abstract IEnumerable<object> GetAttributesToEqualityCheck();
+
         public override bool Equals(object obj)
         {
             return Equals(obj as T);
@@ -18,6 +18,7 @@ namespace Webinars.Domain.Ddd
                 return false;
             return GetAttributesToEqualityCheck().SequenceEqual(other.GetAttributesToEqualityCheck());
         }
+
         public static bool operator ==(ValueObject<T> left, ValueObject<T> right)
         {
             return Equals(left, right);
@@ -27,6 +28,5 @@ namespace Webinars.Domain.Ddd
         {
             return !(left == right);
         }
-
     }
 }

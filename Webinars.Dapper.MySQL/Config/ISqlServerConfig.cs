@@ -1,7 +1,6 @@
-﻿namespace Webinars.Dapper.MySQL.Config
+﻿namespace Webinars.Dapper.MySQL.Config;
+
+public interface ISqlServerConfig
 {
-    public interface ISqlServerConfig
-    {
-        string ConnectionString { get; }
-    }
+    string ConnectionString { get; }
 }

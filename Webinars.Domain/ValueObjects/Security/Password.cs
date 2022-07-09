@@ -6,15 +6,25 @@ namespace Webinars.Domain.ValueObjects.Security
 {
     public class Password : ValueObject<Password>
     {
-        public string Value { get; init; }
         public Password(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("Password cannot be empty");
             Value = password;
         }
-        public static Password Of(string value) => new(value);
-        public static implicit operator string(Password password) => password.Value;
+
+        public string Value { get; init; }
+
+        public static Password Of(string value)
+        {
+            return new(value);
+        }
+
+        public static implicit operator string(Password password)
+        {
+            return password.Value;
+        }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return Value;

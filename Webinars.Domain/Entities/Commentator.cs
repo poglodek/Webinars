@@ -10,14 +10,8 @@ namespace Webinars.Domain.Entities
 {
     public class Commentator : Entity<CommentatorId>
     {
-        public Name Name { get; set; }
-        public Email Email { get; set; }
-        public CommentatorStatus CommentatorStatus { get; set; }
-        public CreatedTime CreatedTime { get; set; }
-        public Password Password { get; set; }
-        public List<Message> Messages { get; set; }
-
-        public Commentator(CommentatorId commentatorId, Name name, Email email, CommentatorStatus status, CreatedTime time, Password password, List<Message> messages)
+        public Commentator(CommentatorId commentatorId, Name name, Email email, CommentatorStatus status,
+            CreatedTime time, Password password, List<Message> messages)
         {
             Id = commentatorId;
             Name = name;
@@ -27,6 +21,13 @@ namespace Webinars.Domain.Entities
             Password = password;
             Messages = messages;
         }
+
+        public Name Name { get; set; }
+        public Email Email { get; set; }
+        public CommentatorStatus CommentatorStatus { get; set; }
+        public CreatedTime CreatedTime { get; set; }
+        public Password Password { get; set; }
+        public List<Message> Messages { get; set; }
 
         public void BanCommentator()
         {
@@ -57,6 +58,5 @@ namespace Webinars.Domain.Entities
         {
             Name = new Name(firstName, lastName);
         }
-        
     }
 }

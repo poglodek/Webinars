@@ -53,6 +53,7 @@ namespace Webinars.UnitTest.Domain
 
             result.Should().HaveCount(1);
         }
+
         [Fact]
         public void CreateLinkWithYtAndWs_GetAllLink_Retrun2()
         {

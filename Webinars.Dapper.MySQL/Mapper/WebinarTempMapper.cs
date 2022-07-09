@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using AutoMapper;
 using Webinars.Dapper.MySQL.Converter;
 using Webinars.Dapper.MySQL.TempClass;
@@ -15,13 +14,11 @@ public class WebinarTempMapper : Profile
 {
     public WebinarTempMapper()
     {
-
         CreateMap<string, WebinarName>().ConstructUsing(x => new WebinarName(x)).ReverseMap();
         CreateMap<string, Description>().ConstructUsing(x => new Description(x)).ReverseMap();
         CreateMap<DateTime, CreatedTime>().ConstructUsing(x => new CreatedTime(x)).ReverseMap();
         CreateMap<int, Category>().ConstructUsing(x => new Category((CatergoryStatus) x)).ReverseMap();
         CreateMap<int, WebinarId>().ConstructUsing(x => new WebinarId(x)).ReverseMap();
-        CreateMap<WebinarTemp,Webinar>().ConvertUsing<WebinarTempConverter>();
-
+        CreateMap<WebinarTemp, Webinar>().ConvertUsing<WebinarTempConverter>();
     }
 }

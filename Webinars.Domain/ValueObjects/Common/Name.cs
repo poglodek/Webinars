@@ -6,9 +6,6 @@ namespace Webinars.Domain.ValueObjects
 {
     public class Name : ValueObject<Name>
     {
-        public string FirstName { get; init; }
-        public string LastName { get; init; }
-
         public Name(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(firstName))
@@ -18,6 +15,10 @@ namespace Webinars.Domain.ValueObjects
             FirstName = firstName;
             LastName = lastName;
         }
+
+        public string FirstName { get; init; }
+        public string LastName { get; init; }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return FirstName;

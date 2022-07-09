@@ -10,14 +10,16 @@ namespace Webinars.Domain.ValueObjects.Webinar
         ENDED,
         ALL
     }
+
     public class Category : ValueObject<Category>
     {
-        public CatergoryStatus Status { get; set; }
-
         public Category(CatergoryStatus status)
         {
             Status = status;
         }
+
+        public CatergoryStatus Status { get; set; }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return Status;

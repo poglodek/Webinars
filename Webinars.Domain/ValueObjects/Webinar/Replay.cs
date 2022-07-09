@@ -5,12 +5,13 @@ namespace Webinars.Domain.ValueObjects.Webinar
 {
     public class Replay : ValueObject<Replay>
     {
-        public Link? Link { get; set; }
-
         public Replay(Link? link)
         {
             Link = link;
         }
+
+        public Link? Link { get; set; }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return Link;
@@ -22,6 +23,8 @@ namespace Webinars.Domain.ValueObjects.Webinar
         }
 
         public bool HasReplay()
-            => Link != null;
+        {
+            return Link != null;
+        }
     }
 }

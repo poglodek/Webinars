@@ -21,10 +21,10 @@ public class GetWebinarWebinarById : IGetWebinarById
         _connection = connection;
         _mapper = mapper;
     }
-    
+
     public async Task<Domain.Entities.Webinar> Run(int id)
     {
-        string sql =
+        var sql =
             @"SELECT w.Name as 'WebinarName', w.Id as 'WebinarId', w.Description as 'Description', w.Youtube as 'YouTubeLink',
                         w.Website as 'WebsiteLink', w.YoutubeReplay as 'YoutubeReplay', w.WebsiteRepaly as 'WebsiteReplay', w.Category as 'CategoryInt', 
                         w.CreatedTime as 'CreatedDate', s.FirstName as 'SpeakerFirstName', s.LastName as 'SpeakerLastName'

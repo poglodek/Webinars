@@ -6,9 +6,6 @@ namespace Webinars.Domain.ValueObjects.Message
 {
     public class MessageScoreResult : ValueObject<MessageScoreResult>
     {
-        public string RejectReason { get; set; }
-        public bool IsReject { get; set; }
-
         public MessageScoreResult(bool isReject)
         {
             if (!isReject)
@@ -23,11 +20,13 @@ namespace Webinars.Domain.ValueObjects.Message
             RejectReason = rejectExplanation;
         }
 
+        public string RejectReason { get; set; }
+        public bool IsReject { get; set; }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return IsReject;
             yield return RejectReason;
         }
-
     }
 }

@@ -6,14 +6,15 @@ namespace Webinars.Domain.ValueObjects.Webinar
 {
     public class WebinarName : ValueObject<WebinarName>
     {
-        public string Name { get; init; }
-
         public WebinarName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException("name cannot be null");
             Name = name;
         }
+
+        public string Name { get; init; }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return Name;

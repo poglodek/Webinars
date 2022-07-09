@@ -7,8 +7,8 @@ namespace Webinars.Domain
 {
     public class MessageRules
     {
-        private readonly IList<IRejectWords> _wordsList;
         private readonly IList<ICurses> _cursesList;
+        private readonly IList<IRejectWords> _wordsList;
 
         public MessageRules(IList<IRejectWords> wordsList, IList<ICurses> cursesList)
         {
@@ -20,11 +20,12 @@ namespace Webinars.Domain
         {
             if (HasAnyCurses(message))
                 return new MessageScoreResult(true, "Message has curses!");
-            else if (HasAnyRejectWords(message))
+            if (HasAnyRejectWords(message))
                 return new MessageScoreResult(true, "Message has rejected words!");
 
             return new MessageScoreResult(false);
         }
+
         public bool HasAnyCurses(Message message)
         {
             ReadOnlySpan<string> words = message.Value
@@ -34,12 +35,11 @@ namespace Webinars.Domain
                 .Split(' ');
 
             foreach (var word in words)
-            {
                 if (_cursesList.Select(x => x.Word.ToUpper()).Contains(word))
                     return false;
-            }
             return true;
         }
+
         public bool HasAnyRejectWords(Message message)
         {
             ReadOnlySpan<string> words = message.Value
@@ -49,12 +49,9 @@ namespace Webinars.Domain
                 .Split(' ');
 
             foreach (var word in words)
-            {
                 if (_wordsList.Select(x => x.Word.ToUpper()).Contains(word))
                     return false;
-            }
             return true;
         }
-
     }
 }

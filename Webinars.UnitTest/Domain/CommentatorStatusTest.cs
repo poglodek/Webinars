@@ -14,6 +14,7 @@ namespace Webinars.UnitTest.Domain
             var result = commentator.CanLogin();
             result.Should().BeTrue();
         }
+
         [Fact]
         public void CanLogin_IsNotBannedAndIsActive_ReturnTrue()
         {
@@ -22,6 +23,7 @@ namespace Webinars.UnitTest.Domain
             var result = commentator.CanLogin();
             result.Should().BeFalse();
         }
+
         [Fact]
         public void CanLogin_IsNotBannedAndIsNotActive_ReturnFalse()
         {
@@ -30,6 +32,7 @@ namespace Webinars.UnitTest.Domain
             var result = commentator.CanLogin();
             result.Should().BeFalse();
         }
+
         [Fact]
         public void CanLogin_IsBannedAndIsNotActive_ReturnFalse()
         {

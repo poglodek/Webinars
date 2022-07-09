@@ -6,8 +6,6 @@ namespace Webinars.Domain.ValueObjects.Common
 {
     public class Description : ValueObject<Description>
     {
-        public string DescriptionText { get; init; }
-
         public Description(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -16,6 +14,9 @@ namespace Webinars.Domain.ValueObjects.Common
                 throw new ArgumentException("text cannot be longer than 5000 chars");
             DescriptionText = text;
         }
+
+        public string DescriptionText { get; init; }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return DescriptionText;

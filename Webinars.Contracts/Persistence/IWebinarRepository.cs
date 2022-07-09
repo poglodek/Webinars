@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Webinars.Common;
 using Webinars.Domain.Entities;
@@ -9,7 +8,9 @@ namespace Webinars.Contracts.Persistence
 {
     public interface IWebinarRepository
     {
-        public Task<IReadOnlyCollection<Webinar>> GetAllCollection(CatergoryStatus filter = CatergoryStatus.ALL, int page = 0);
+        public Task<IReadOnlyCollection<Webinar>> GetAllCollection(CatergoryStatus filter = CatergoryStatus.ALL,
+            int page = 0);
+
         public Task<Webinar> GetById(int id);
         public Task<OperationStatusCode> Create(Webinar webinar);
     }
