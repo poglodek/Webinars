@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentatorApi", "Commentat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebinarApi", "WebinarApi\WebinarApi.csproj", "{8A3370B8-3681-4583-B55D-D3F5755AFE31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webinar.ServiceBus", "Webinar.ServiceBus\Webinar.ServiceBus.csproj", "{5E7D66F6-932D-4D6C-92ED-CE9F664AA376}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{8A3370B8-3681-4583-B55D-D3F5755AFE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A3370B8-3681-4583-B55D-D3F5755AFE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A3370B8-3681-4583-B55D-D3F5755AFE31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7D66F6-932D-4D6C-92ED-CE9F664AA376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7D66F6-932D-4D6C-92ED-CE9F664AA376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7D66F6-932D-4D6C-92ED-CE9F664AA376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7D66F6-932D-4D6C-92ED-CE9F664AA376}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{113DE867-4189-4F4E-8CC6-3E4AFF1897BC} = {541AB519-2EB5-4CAA-8959-41CC91373114}
 		{36AC3286-1533-45B3-ABCD-7A70F3AD535A} = {8929038A-C8B8-4253-AD1C-CA9615E154C0}
 		{8A3370B8-3681-4583-B55D-D3F5755AFE31} = {8929038A-C8B8-4253-AD1C-CA9615E154C0}
+		{5E7D66F6-932D-4D6C-92ED-CE9F664AA376} = {C2611698-85CD-4D2D-940A-0D159AB33133}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85DAC563-0F17-4552-99DD-2877B5B51439}

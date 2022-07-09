@@ -9,6 +9,8 @@ builder.Services.AddRepository();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddServiceBus();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

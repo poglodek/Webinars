@@ -1,9 +1,14 @@
-﻿using MediatR;
+﻿using MassTransit;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ServiceBus.Consumer.Webinar;
 using Webinars.Common;
+using Webinars.CQRS.Mapper.Dto;
 using Webinars.CQRS.Webinar.Commands.CreateWebinar;
 using Webinars.CQRS.Webinar.Queries.GetAllWebinars;
 using Webinars.CQRS.Webinar.Queries.GetWebinarById;
+using Webinars.CQRS.Webinar.ViewModel;
+using Webinars.Domain.Entities;
 using Webinars.Domain.ValueObjects.Webinar;
 
 namespace WebinarApi;
@@ -28,9 +33,17 @@ public static class RegisterEndPoints
             .Produces(StatusCodes.Status400BadRequest)
             .WithTags("Create Webinar");
 
+        app.MapGet("/xd",GETXD);
+        
         return app;
     }
-
+    //DELETE, only for education 
+    private static async Task<IResult> GETXD([FromServices] IRequestClient<WebinarIdDto> endpoint)
+    {
+        var a = await endpoint.GetResponse<WebinarViewModel>(new WebinarIdDto{Id = 1});
+        return Results.Ok(a);
+       
+    }
     private static async Task<IResult> GetAll([FromServices] IMediator mediator, [FromRoute] int status,
         [FromRoute] int page)
     {

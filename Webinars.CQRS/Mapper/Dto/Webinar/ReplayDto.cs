@@ -8,6 +8,10 @@
             Website = wb;
         }
 
+        public ReplayDto()
+        {
+            
+        }
         public string Youtube { get; set; }
         public string Website { get; set; }
     }

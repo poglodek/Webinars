@@ -8,6 +8,11 @@
             Website = wb;
         }
 
+        public LinkDto()
+        {
+            
+        }
+
         public string Youtube { get; set; }
         public string Website { get; set; }
     }
