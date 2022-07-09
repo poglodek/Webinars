@@ -3,7 +3,9 @@ using System.Data;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dapper;
+using Webinars.Common;
 using Webinars.Contracts.Persistence;
+using Webinars.Dapper.MySQL.Methods.Webinar;
 using Webinars.Dapper.MySQL.TempClass;
 using Webinars.Domain.Entities;
 using Webinars.Domain.ValueObjects.Webinar;
@@ -12,40 +14,27 @@ namespace Webinars.Dapper.MySQL.Repository
 {
     public class WebinarRepository : IWebinarRepository
     {
-        private readonly IDbConnection _connection;
-        private readonly IMapper _mapper;
+        private readonly IGetWebinarById _getWebinarById;
+        private readonly IWebinarGetAllCollection _getAllCollection;
 
-        public WebinarRepository(IDbConnection connection,
-            IMapper mapper)
+        public WebinarRepository(IGetWebinarById getWebinarById, IWebinarGetAllCollection getAllCollection)
         {
-            _connection = connection;
-            _mapper = mapper;
+            _getWebinarById = getWebinarById;
+            _getAllCollection = getAllCollection;
         }
         public async Task<IReadOnlyCollection<Webinar>> GetAllCollection(CatergoryStatus filter = CatergoryStatus.ALL, int page = 0)
-        { 
-            string sql = @$"SELECT w.Name as 'WebinarName', w.Id as 'WebinarId', w.Description as 'Description', w.Youtube as 'YouTubeLink',
-                        w.Website as 'WebsiteLink', w.YoutubeReplay as 'YoutubeReplay', w.WebsiteRepaly as 'WebsiteReplay', w.Category as 'CategoryInt', 
-                        w.CreatedTime as 'CreatedDate', s.FirstName as 'SpeakerFirstName', s.LastName as 'SpeakerLastName'
-                        from webinar w 
-                        inner join speaker s on s.id = w.id
-                        WHERE w.Category = @category LIMIT 10 OFFSET {page} ";
-            var temp = await _connection.QueryAsync<WebinarTemp>(sql, new {category = (int)filter });
-            return _mapper.Map<IReadOnlyCollection<Webinar>>(temp);
-
+        {
+            return await _getAllCollection.Run(filter, page);
         }
 
         public async Task<Webinar> GetById(int id)
         {
-            string sql =
-                @"SELECT w.Name as 'WebinarName', w.Id as 'WebinarId', w.Description as 'Description', w.Youtube as 'YouTubeLink',
-                        w.Website as 'WebsiteLink', w.YoutubeReplay as 'YoutubeReplay', w.WebsiteRepaly as 'WebsiteReplay', w.Category as 'CategoryInt', 
-                        w.CreatedTime as 'CreatedDate', s.FirstName as 'SpeakerFirstName', s.LastName as 'SpeakerLastName'
-                        from webinar w 
-                        inner join speaker s on s.id = w.id
-                        WHERE w.Id = @id";
-            var temp = await _connection.QuerySingleAsync<WebinarTemp>(sql, new {id});
+            return await _getWebinarById.Run(id);
+        }
 
-            return _mapper.Map<Webinar>(temp);
+        public async Task<OperationStatusCode> Create(Webinar webinar)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

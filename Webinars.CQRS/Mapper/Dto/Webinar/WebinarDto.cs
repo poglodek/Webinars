@@ -1,4 +1,6 @@
-﻿namespace Webinars.CQRS.Mapper.Dto
+﻿using Webinars.CQRS.Mapper.Dto.Speaker;
+
+namespace Webinars.CQRS.Mapper.Dto
 {
     public class WebinarDto
     {

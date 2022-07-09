@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Webinars.Common\Webinars.Common.csproj" />
     <ProjectReference Include="..\Webinars.Domain\Webinars.Domain.csproj" />
   </ItemGroup>
 

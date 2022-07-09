@@ -3,6 +3,7 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using MySqlConnector;
 using Webinars.Contracts.Persistence;
+using Webinars.Dapper.MySQL.Methods.Webinar;
 using Webinars.Dapper.MySQL.Repository;
 
 namespace Webinars.Dapper.MySQL
@@ -15,6 +16,12 @@ namespace Webinars.Dapper.MySQL
                 (services) => new MySqlConnection("Server=127.0.0.1;User ID = adminNET; Password=admin;Database=webinar"));
             services.AddScoped<IWebinarRepository,WebinarRepository>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            
+            services.AddTransient<IWebinarGetAllCollection, WebinarWebinarGetAllCollection>();
+            services.AddTransient<IGetWebinarById, GetWebinarWebinarById>();
+            services.AddTransient<ICreateWebinar, CreateWebinar>();
+            
+            
             return services;
         } 
     }
