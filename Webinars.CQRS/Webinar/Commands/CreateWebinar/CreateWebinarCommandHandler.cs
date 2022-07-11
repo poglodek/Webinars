@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using FluentValidation;
@@ -25,7 +26,7 @@ namespace Webinars.CQRS.Webinar.Commands.CreateWebinar
             var validator = new CreateWebinarCommandValidator();
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
-                throw new ValidationException(validationResult.Errors);
+                throw new ValidatorException(validationResult.Errors.Select(x=>x.ErrorMessage).Aggregate((x,z)=>x+","+z));
 
             //TODO: GET SPEAKER by rabbitmq
 

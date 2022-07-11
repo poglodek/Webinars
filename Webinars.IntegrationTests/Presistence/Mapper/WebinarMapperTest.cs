@@ -151,7 +151,7 @@ public class WebinarMapperTest
         var webinar = ReturnWebinar();
         var viewModel = _mapper.Map<WebinarViewModel>(webinar);
 
-        viewModel.Id.Should().Be(webinar.Id.Id);
+        viewModel.Id.Id.Should().Be(webinar.Id.Id);
         viewModel.Category.Status.Should().Be(webinar.Category.Status);
         viewModel.Description.DescriptionText.Should().Be(webinar.Description.DescriptionText);
         viewModel.Link.Website.Should().Be(webinar.Link.Website);
@@ -170,7 +170,7 @@ public class WebinarMapperTest
 
         var viewModel = _mapper.Map<WebinarViewModel>(webinar);
 
-        viewModel.Id.Should().Be(webinar.Id.Id);
+        viewModel.Id.Id.Should().Be(webinar.Id.Id);
         viewModel.Category.Status.Should().Be(webinar.Category.Status);
         viewModel.Description.DescriptionText.Should().Be(webinar.Description.DescriptionText);
         viewModel.Link.Website.Should().Be(webinar.Link.Website);
@@ -187,7 +187,7 @@ public class WebinarMapperTest
         webinar.Replay.Link.Youtube = string.Empty;
         var viewModel = _mapper.Map<WebinarViewModel>(webinar);
 
-        viewModel.Id.Should().Be(webinar.Id.Id);
+        viewModel.Id.Id.Should().Be(webinar.Id.Id);
         viewModel.Category.Status.Should().Be(webinar.Category.Status);
         viewModel.Description.DescriptionText.Should().Be(webinar.Description.DescriptionText);
         viewModel.Link.Website.Should().Be(webinar.Link.Website);
@@ -206,7 +206,26 @@ public class WebinarMapperTest
         webinar.Replay.Link.Youtube = string.Empty;
         var viewModel = _mapper.Map<WebinarViewModel>(webinar);
 
-        viewModel.Id.Should().Be(webinar.Id.Id);
+        viewModel.Id.Id.Should().Be(webinar.Id.Id);
+        viewModel.Category.Status.Should().Be(webinar.Category.Status);
+        viewModel.Description.DescriptionText.Should().Be(webinar.Description.DescriptionText);
+        viewModel.Link.Website.Should().Be(webinar.Link.Website);
+        viewModel.Link.Youtube.Should().Be(webinar.Link.Youtube);
+        viewModel.Replay.Youtube.Should().Be(webinar.Replay.Link.Youtube);
+        viewModel.Replay.Website.Should().Be(webinar.Replay.Link.Website);
+    }
+    [Fact]
+    //TODO: create test for map webinarcreate command to webinar view model
+    public void CreateWebinarCommandToWebinarViewModel_AllPropertyOkButAllLinkAreNull_ShouldReturnOk()
+    {
+        var webinar = ReturnWebinar();
+        webinar.Link.Website = string.Empty;
+        webinar.Link.Youtube = string.Empty;
+        webinar.Replay.Link.Website = string.Empty;
+        webinar.Replay.Link.Youtube = string.Empty;
+        var viewModel = _mapper.Map<WebinarViewModel>(webinar);
+
+        viewModel.Id.Id.Should().Be(webinar.Id.Id);
         viewModel.Category.Status.Should().Be(webinar.Category.Status);
         viewModel.Description.DescriptionText.Should().Be(webinar.Description.DescriptionText);
         viewModel.Link.Website.Should().Be(webinar.Link.Website);

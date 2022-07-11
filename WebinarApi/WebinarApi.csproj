@@ -22,5 +22,5 @@
         <ProjectReference Include="..\Webinars.Dapper.MySQL\Webinars.Dapper.MySQL.csproj" />
         <ProjectReference Include="..\Webinars.Domain\Webinars.Domain.csproj" />
     </ItemGroup>
-
+    
 </Project>
