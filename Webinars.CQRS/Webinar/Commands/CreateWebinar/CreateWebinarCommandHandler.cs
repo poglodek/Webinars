@@ -36,7 +36,7 @@ namespace Webinars.CQRS.Webinar.Commands.CreateWebinar
             if (result != OperationStatusCode.CREATED)
                 throw new RepositoryException("Webinar creation failed: " + result);
 
-            return OperationStatusCode.CREATED;
+            return result;
         }
     }
 }

@@ -71,6 +71,9 @@ public static class RegisterEndPoints
         [FromBody] CreateWebinarCommand command)
     {
         var result = await mediator.Send(command);
+        
+        if(result == OperationStatusCode.CREATED)
+            return Results.Created("/get",null);
         return Results.Ok(result);
     }
 }

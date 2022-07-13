@@ -7,6 +7,11 @@ namespace Webinars.Domain.Ddd
     {
         protected abstract IEnumerable<object> GetAttributesToEqualityCheck();
 
+
+        public ValueObject()
+        {
+            
+        }
         public override bool Equals(object obj)
         {
             return Equals(obj as T);

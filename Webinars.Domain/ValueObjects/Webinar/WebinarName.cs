@@ -12,7 +12,7 @@ namespace Webinars.Domain.ValueObjects.Webinar
                 throw new ArgumentNullException("name cannot be null");
             Name = name;
         }
-
+        
         public string Name { get; init; }
 
         protected override IEnumerable<object> GetAttributesToEqualityCheck()

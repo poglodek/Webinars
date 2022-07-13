@@ -9,7 +9,7 @@ namespace Webinars.Domain.ValueObjects.Ids
         {
             Id = id;
         }
-
+        
         public int Id { get; init; }
 
         protected override IEnumerable<object> GetAttributesToEqualityCheck()

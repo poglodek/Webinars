@@ -22,6 +22,10 @@ namespace Webinars.Domain.Entities
             Category = category;
         }
 
+        public Webinar()
+        {
+            
+        }
         public WebinarName WebinarName { get; init; }
         public Speaker Speaker { get; init; }
         public Description Description { get; init; }

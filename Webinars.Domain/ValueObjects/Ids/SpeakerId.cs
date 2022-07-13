@@ -7,6 +7,11 @@ namespace Webinars.Domain.ValueObjects.Ids
     {
         public int Id { get; init; }
 
+        public SpeakerId(int id)
+        {
+            Id = id;
+        }
+
         protected override IEnumerable<object> GetAttributesToEqualityCheck()
         {
             yield return Id;

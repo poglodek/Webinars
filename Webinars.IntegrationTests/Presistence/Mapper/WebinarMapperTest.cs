@@ -2,6 +2,9 @@
 using AutoMapper;
 using FluentAssertions;
 using Webinars.CQRS.Mapper;
+using Webinars.CQRS.Mapper.Dto;
+using Webinars.CQRS.Mapper.Dto.Speaker;
+using Webinars.CQRS.Webinar.Commands.CreateWebinar;
 using Webinars.CQRS.Webinar.ViewModel;
 using Webinars.Dapper.MySQL.Converter;
 using Webinars.Dapper.MySQL.Mapper;
@@ -215,7 +218,6 @@ public class WebinarMapperTest
         viewModel.Replay.Website.Should().Be(webinar.Replay.Link.Website);
     }
     [Fact]
-    //TODO: create test for map webinarcreate command to webinar view model
     public void CreateWebinarCommandToWebinarViewModel_AllPropertyOkButAllLinkAreNull_ShouldReturnOk()
     {
         var webinar = ReturnWebinar();
@@ -232,5 +234,43 @@ public class WebinarMapperTest
         viewModel.Link.Youtube.Should().Be(webinar.Link.Youtube);
         viewModel.Replay.Youtube.Should().Be(webinar.Replay.Link.Youtube);
         viewModel.Replay.Website.Should().Be(webinar.Replay.Link.Website);
+    }
+    [Fact]
+    public void CreateWebinarCommandToWebinar_AllPropertyOk_ShouldReturnOk()
+    {
+        var webinar = ReturnWebinar();
+        var command = ReturnCreateWebinarCommand(webinar);
+        var webinarFromMapper = _mapper.Map<Webinar>(command);
+
+
+        webinarFromMapper.Category.Status.Should().Be(command.Category.Status);
+        webinarFromMapper.Description.DescriptionText.Should().Be(command.Description.DescriptionText);
+        webinarFromMapper.Link.Website.Should().Be(command.Link.Website);
+        webinarFromMapper.Link.Youtube.Should().Be(command.Link.Youtube);
+        webinarFromMapper.Replay.Link.Youtube.Should().Be(command.Replay.Youtube);
+        webinarFromMapper.Replay.Link.Website.Should().Be(command.Replay.Website);
+        webinarFromMapper.WebinarName.Name.Should().Be(command.WebinarName.Name);
+        
+    }
+
+    private CreateWebinarCommand ReturnCreateWebinarCommand(Webinar webinar)
+    {
+        return new CreateWebinarCommand()
+        {
+            Category = new CategoryDto
+            {
+                Status = webinar.Category.Status
+            },
+            Description = new DescriptionDto()
+            {
+                DescriptionText = webinar.Description.DescriptionText
+            },
+            Link = new LinkDto(webinar.Link.Youtube, webinar.Link.Website),
+            Replay = new ReplayDto(webinar.Replay.Link.Youtube, webinar.Replay.Link.Website),
+            WebinarName = new WebinarNameDto()
+            {
+                Name = webinar.WebinarName.Name
+            }
+        };
     }
 }

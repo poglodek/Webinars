@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Webinars.CQRS.Mapper.Dto;
+using Webinars.CQRS.Webinar.Commands.CreateWebinar;
 
 namespace Webinars.CQRS.Mapper
 {
@@ -15,6 +16,15 @@ namespace Webinars.CQRS.Mapper
                 .ForMember(x => x.Link, opt => opt.MapFrom(y => y.Link))
                 .ForMember(x => x.CreatedTime, opt => opt.MapFrom(y => y.CreatedTime))
                 .ForMember(x => x.Category, opt => opt.MapFrom(y => y.Category))
+                .ReverseMap();
+
+            CreateMap<CreateWebinarCommand, Domain.Entities.Webinar>()
+                .ForMember(x => x.Category, opt => opt.MapFrom(y => y.Category))
+                .ForMember(x => x.Category, opt => opt.MapFrom(y => y.Description))
+                .ForMember(x => x.Category, opt => opt.MapFrom(y => y.Link))
+                .ForMember(x => x.Category, opt => opt.MapFrom(y => y.Replay))
+                .ForMember(x => x.Category, opt => opt.MapFrom(y => y.SpeakerId))
+                .ForMember(x => x.Category, opt => opt.MapFrom(y => y.WebinarName))
                 .ReverseMap();
         }
     }
