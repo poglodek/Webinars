@@ -16,17 +16,17 @@ using Xunit;
 
 namespace Webinars.IntegrationTests.API.Webinar;
 
-public class CreateWebinar : IClassFixture<WebApplicationFactory<Program>>
+public class CreateWebinar : IClassFixture<WebinarFactory<Program>>
 {
     private HttpClient _client;
-    public CreateWebinar(WebApplicationFactory<Program> factory)
+    public CreateWebinar(WebinarFactory<Program> factory)
     {
         _client = factory.WithWebHostBuilder(builder =>
         {
             
         }).CreateClient();
     }
-
+    
     private CreateWebinarCommand CreateWebinarCommand()
     {
         var body = new CreateWebinarCommandBuilder()
@@ -93,7 +93,7 @@ public class CreateWebinar : IClassFixture<WebApplicationFactory<Program>>
         };
 
         var response = await _client.PostAsync("/CreateWebinar", new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF32, "application/json"));
-
+        
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
     
